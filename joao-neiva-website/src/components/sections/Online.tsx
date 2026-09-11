@@ -1,4 +1,4 @@
-import { online, waLink } from '../../data/site'
+import { mailLink, online } from '../../data/site'
 import { CtaLink } from '../ui/CtaLink'
 import { Eyebrow } from '../ui/Eyebrow'
 import { Reveal } from '../ui/Reveal'
@@ -30,8 +30,7 @@ export function Online() {
           </dl>
 
           <CtaLink
-            href={waLink('Olá João, gostaria de agendar uma sessão online.')}
-            external
+            href={mailLink('Agendar sessão online')}
             className="w-full sm:w-auto sm:self-start"
           >
             {online.cta}

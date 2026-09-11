@@ -24,7 +24,7 @@ export function Header() {
     >
       <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-gutter lg:h-20">
         <a
-          href="#top"
+          href="/"
           className="font-serif text-lg font-semibold tracking-[0.16em] text-bone lg:text-xl"
         >
           {site.name.toUpperCase()}
@@ -35,7 +35,7 @@ export function Header() {
             {nav.map((item) => (
               <li key={item.id}>
                 <a
-                  href={`#${item.id}`}
+                  href={`/#${item.id}`}
                   className="text-xs uppercase tracking-[0.14em] text-bone/85 transition-colors duration-300 hover:text-gold"
                 >
                   {item.label}

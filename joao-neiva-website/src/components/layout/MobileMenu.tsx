@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { X } from 'lucide-react'
 import { useEffect } from 'react'
-import { nav, site, whatsappUrl } from '../../data/site'
+import { contactUrl, nav, site } from '../../data/site'
 import { editorialEase } from '../../lib/motion'
 import { CtaLink } from '../ui/CtaLink'
 
@@ -57,7 +57,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
               {nav.map((item) => (
                 <li key={item.id}>
                   <a
-                    href={`#${item.id}`}
+                    href={`/#${item.id}`}
                     onClick={onClose}
                     className="font-serif text-[2rem] leading-none text-bone transition-colors hover:text-gold"
                   >
@@ -69,7 +69,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </nav>
 
           <div className="px-gutter pb-12">
-            <CtaLink href={whatsappUrl} external className="w-full" >
+            <CtaLink href={contactUrl} className="w-full" onClick={onClose}>
               Agendar uma conversa
             </CtaLink>
           </div>

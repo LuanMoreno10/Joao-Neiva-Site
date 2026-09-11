@@ -1,5 +1,6 @@
-import { footer, site, whatsappUrl } from '../../data/site'
+import { contactUrl, footer, site } from '../../data/site'
 import { CtaLink } from '../ui/CtaLink'
+import { EmailCopy } from '../ui/EmailCopy'
 import { Reveal } from '../ui/Reveal'
 
 export function Footer() {
@@ -8,18 +9,11 @@ export function Footer() {
       <div className="mx-auto w-full max-w-[1280px]">
         <Reveal className="flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-[720px] font-serif text-title text-balance">{footer.title}</h2>
-          <CtaLink href={whatsappUrl} external>
-            {footer.cta}
-          </CtaLink>
+          <CtaLink href={contactUrl}>{footer.cta}</CtaLink>
         </Reveal>
 
         <div className="mt-12 flex flex-col items-center gap-3 text-center">
-          <a
-            href={`mailto:${site.email}`}
-            className="transition-colors duration-300 hover:text-gold"
-          >
-            {site.email}
-          </a>
+          <EmailCopy />
           <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-gold">
             {site.tagline}
           </p>

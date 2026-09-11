@@ -1,17 +1,38 @@
 export const site = {
   name: 'João Neiva',
-  role: 'Conselheiro Pessoal & Estratégico',
+  role: 'Personal & Strategic Advisor',
   tagline: 'Clareza para compreender. Direção para decidir.',
-  email: 'joao@joaoneiva.pt',
-  // TODO: substituir pelo número real (formato internacional, sem + nem espaços)
-  whatsapp: '351900000000',
-  whatsappMessage: 'Olá João, gostaria de agendar uma conversa.',
+  // Assinatura do cartão de visita
+  motto: 'Relações · Decisões · Recomeço',
+  email: 'joaoneiva@gmail.com',
+  // TODO: substituir pelo número real (o do cartão de visita é um exemplo)
+  phone: '+351 911 111 111',
 } as const
 
-export const waLink = (message: string = site.whatsappMessage) =>
-  `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(message)}`
+export const mailLink = (subject: string) =>
+  `mailto:${site.email}?subject=${encodeURIComponent(subject)}`
 
-export const whatsappUrl = waLink()
+// Página do formulário — é para aqui que apontam os botões "Agendar uma conversa".
+export const contactUrl = '/agendar/'
+
+// Chave gratuita do Web3Forms (web3forms.com). Sem ela o formulário não envia.
+export const formAccessKey = ''
+
+export const schedule = {
+  eyebrow: 'Primeiro passo',
+  title: 'Agendar uma conversa',
+  intro:
+    'A primeira conversa é sem compromisso. Diga-me em duas linhas o que o traz aqui e eu respondo pessoalmente, em regra no mesmo dia.',
+  formats: ['Online', 'Presencial', 'Indiferente'],
+  subjects: [
+    'Ainda não sei',
+    'Sessão Clareza',
+    'Acompanhamento Individual',
+    'Sessão Estratégica',
+    'Acompanhamento Personalizado',
+    'Deslocações Especiais',
+  ],
+} as const
 
 export const nav = [
   { id: 'sobre', label: 'Sobre' },
@@ -164,7 +185,7 @@ export const testimonials = {
 export const locations = {
   eyebrow: 'Presença & Atendimento',
   title: 'Onde estou',
-  places: ['Famalicão', 'Porto', 'Braga', 'Online'],
+  places: ['Famalicão', 'Porto', 'Lisboa', 'Online'],
   note: 'Sessões presenciais em espaços que garantem privacidade, conforto e discrição.',
 } as const
 

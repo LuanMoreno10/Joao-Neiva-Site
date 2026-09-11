@@ -1,7 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { hero, site, whatsappUrl } from '../../data/site'
+import { contactUrl, hero, site } from '../../data/site'
 import { editorialEase } from '../../lib/motion'
 import { CtaLink } from '../ui/CtaLink'
+import { EmailCopy } from '../ui/EmailCopy'
 
 const container = {
   hidden: {},
@@ -43,6 +44,10 @@ export function Hero() {
 
       <motion.div {...animation} className="mx-auto w-full max-w-[1280px]">
         <div className="max-w-[820px]">
+          <motion.p {...child} className="mb-5 text-eyebrow font-medium uppercase text-gold">
+            {site.motto}
+          </motion.p>
+
           <motion.h1 {...child} id="hero-title" className="font-serif text-display text-balance">
             {hero.headline}
           </motion.h1>
@@ -68,9 +73,12 @@ export function Hero() {
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-gold sm:text-[0.8125rem]">
             {site.tagline}
           </p>
-          <CtaLink href={whatsappUrl} external className="w-full sm:w-auto">
-            Agendar uma conversa
-          </CtaLink>
+          <div className="flex w-full flex-col items-start gap-2 sm:w-auto sm:items-end">
+            <CtaLink href={contactUrl} className="w-full sm:w-auto">
+              Agendar uma conversa
+            </CtaLink>
+            <EmailCopy className="text-bone/75" />
+          </div>
         </motion.div>
       </motion.div>
     </section>
