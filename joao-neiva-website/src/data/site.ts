@@ -5,34 +5,18 @@ export const site = {
   // Assinatura do cartão de visita
   motto: 'Relações · Decisões · Recomeço',
   email: 'joaoneiva@gmail.com',
-  // TODO: substituir pelo número real (o do cartão de visita é um exemplo)
-  phone: '+351 911 111 111',
+  phone: '+351 912 720 820',
+  whatsappMessage: 'Olá João, gostaria de agendar uma conversa.',
 } as const
 
 export const mailLink = (subject: string) =>
   `mailto:${site.email}?subject=${encodeURIComponent(subject)}`
 
-// Página do formulário — é para aqui que apontam os botões "Agendar uma conversa".
-export const contactUrl = '/agendar/'
+// O wa.me só aceita dígitos: retira o "+" e os espaços do número.
+export const waLink = (message: string = site.whatsappMessage) =>
+  `https://wa.me/${site.phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`
 
-// Chave gratuita do Web3Forms (web3forms.com). Sem ela o formulário não envia.
-export const formAccessKey = ''
-
-export const schedule = {
-  eyebrow: 'Primeiro passo',
-  title: 'Agendar uma conversa',
-  intro:
-    'A primeira conversa é sem compromisso. Diga-me em duas linhas o que o traz aqui e eu respondo pessoalmente, em regra no mesmo dia.',
-  formats: ['Online', 'Presencial', 'Indiferente'],
-  subjects: [
-    'Ainda não sei',
-    'Sessão Clareza',
-    'Acompanhamento Individual',
-    'Sessão Estratégica',
-    'Acompanhamento Personalizado',
-    'Deslocações Especiais',
-  ],
-} as const
+export const contactUrl = waLink()
 
 export const nav = [
   { id: 'sobre', label: 'Sobre' },
@@ -47,7 +31,7 @@ export const hero = {
   lead: 'Uma relação. Uma decisão. Uma mudança. Um conflito. Um bloqueio. Uma escolha profissional.',
   body: 'Talvez não precise de mais uma opinião. Talvez precise de uma perspetiva diferente.',
   image: {
-    src: '/images/hero.jpg',
+    src: '/images/JoaoPedro-06.webp',
     alt: 'Retrato de João Neiva',
   },
 } as const
@@ -63,7 +47,7 @@ export const about = {
   closing:
     'Uma carreira construída a ouvir, a compreender e a ajudar pessoas a tomar decisões com mais clareza.',
   portrait: {
-    src: '/images/retrato.jpg',
+    src: '/images/JoaoPedro-11.webp',
     alt: 'João Neiva, conselheiro pessoal e estratégico',
   },
 } as const

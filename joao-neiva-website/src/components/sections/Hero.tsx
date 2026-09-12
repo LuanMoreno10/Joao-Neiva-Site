@@ -2,7 +2,6 @@ import { motion, useReducedMotion } from 'framer-motion'
 import { contactUrl, hero, site } from '../../data/site'
 import { editorialEase } from '../../lib/motion'
 import { CtaLink } from '../ui/CtaLink'
-import { EmailCopy } from '../ui/EmailCopy'
 
 const container = {
   hidden: {},
@@ -27,23 +26,29 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-gutter pb-10 pt-24 lg:pb-16"
     >
-      <img
-        src={hero.image.src}
-        alt={hero.image.alt}
-        width={1264}
-        height={848}
-        fetchPriority="high"
-        decoding="async"
-        className="absolute inset-0 -z-20 size-full object-cover object-[62%_center]"
-      />
-      <div aria-hidden className="absolute inset-0 -z-10 bg-plum-deep/55" />
+      {/* Duotone: o multiply sobre o bordô funde o fundo branco de estúdio na cor da marca */}
+      <div aria-hidden className="absolute inset-0 -z-20 bg-plum">
+        <img
+          src={hero.image.src}
+          alt=""
+          width={1365}
+          height={2048}
+          fetchPriority="high"
+          decoding="async"
+          className="size-full object-cover object-[center_15%] mix-blend-multiply"
+        />
+      </div>
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-linear-to-t from-plum-deep/80 to-transparent"
+        className="absolute inset-0 -z-10 bg-linear-to-r from-plum-deep/85 via-plum-deep/35 to-transparent"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-linear-to-t from-plum-deep/90 to-transparent"
       />
 
       <motion.div {...animation} className="mx-auto w-full max-w-[1280px]">
-        <div className="max-w-[820px]">
+        <div className="max-w-[720px]">
           <motion.p {...child} className="mb-5 text-eyebrow font-medium uppercase text-gold">
             {site.motto}
           </motion.p>
@@ -52,7 +57,10 @@ export function Hero() {
             {hero.headline}
           </motion.h1>
 
-          <motion.p {...child} className="mt-4 font-serif text-lead font-light text-linen text-pretty">
+          <motion.p
+            {...child}
+            className="mt-4 font-serif text-lead font-light text-linen text-pretty"
+          >
             {hero.lead}
           </motion.p>
 
@@ -73,12 +81,9 @@ export function Hero() {
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-gold sm:text-[0.8125rem]">
             {site.tagline}
           </p>
-          <div className="flex w-full flex-col items-start gap-2 sm:w-auto sm:items-end">
-            <CtaLink href={contactUrl} className="w-full sm:w-auto">
-              Agendar uma conversa
-            </CtaLink>
-            <EmailCopy className="text-bone/75" />
-          </div>
+          <CtaLink href={contactUrl} external className="w-full sm:w-auto">
+            Agendar uma conversa
+          </CtaLink>
         </motion.div>
       </motion.div>
     </section>

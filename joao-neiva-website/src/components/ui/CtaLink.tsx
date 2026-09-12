@@ -6,13 +6,15 @@ type CtaLinkProps = {
   children: ReactNode
   className?: string
   onClick?: () => void
+  external?: boolean
 }
 
-export function CtaLink({ href, children, className, onClick }: CtaLinkProps) {
+export function CtaLink({ href, children, className, onClick, external = false }: CtaLinkProps) {
   return (
     <a
       href={href}
       onClick={onClick}
+      {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       className={cn(
         'inline-flex items-center justify-center border border-gold px-7 py-3',
         'text-[0.75rem] font-medium uppercase tracking-[0.12em] text-bone',

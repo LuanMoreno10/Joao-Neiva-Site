@@ -69,7 +69,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           </nav>
 
           <div className="px-gutter pb-12">
-            <CtaLink href={contactUrl} className="w-full" onClick={onClose}>
+            <CtaLink href={contactUrl} external className="w-full" onClick={onClose}>
               Agendar uma conversa
             </CtaLink>
           </div>

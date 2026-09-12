@@ -9,7 +9,9 @@ export function Footer() {
       <div className="mx-auto w-full max-w-[1280px]">
         <Reveal className="flex flex-col items-center gap-6 text-center">
           <h2 className="max-w-[720px] font-serif text-title text-balance">{footer.title}</h2>
-          <CtaLink href={contactUrl}>{footer.cta}</CtaLink>
+          <CtaLink href={contactUrl} external>
+            {footer.cta}
+          </CtaLink>
         </Reveal>
 
         <div className="mt-12 flex flex-col items-center gap-3 text-center">
