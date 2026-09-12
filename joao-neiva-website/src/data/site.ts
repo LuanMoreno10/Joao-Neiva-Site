@@ -4,7 +4,7 @@ export const site = {
   tagline: 'Clareza para compreender. Direção para decidir.',
   // Assinatura do cartão de visita
   motto: 'Relações · Decisões · Recomeço',
-  email: 'joaoneiva@gmail.com',
+  email: 'joaoneiva.advisor@gmail.com',
   phone: '+351 912 720 820',
   whatsappMessage: 'Olá João, gostaria de agendar uma conversa.',
 } as const
