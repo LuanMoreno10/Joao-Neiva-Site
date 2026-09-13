@@ -9,7 +9,7 @@ export function Testimonials() {
     <Section
       id="testemunhos"
       labelledBy="testemunhos-title"
-      className="flex flex-1 flex-col justify-center bg-plum-soft"
+      className="flex flex-1 flex-col justify-center"
     >
       <Reveal className="flex flex-col gap-2">
         <Eyebrow>{testimonials.eyebrow}</Eyebrow>
@@ -18,15 +18,15 @@ export function Testimonials() {
         </h1>
       </Reveal>
 
-      <ul className="mt-8 grid gap-px bg-gold/20 sm:grid-cols-2">
+      <ul className="mt-8 grid gap-px bg-plum/15 sm:grid-cols-2">
         {testimonials.items.map((testimonial, index) => (
-          <li key={testimonial.author} className="bg-plum-soft p-6">
+          <li key={testimonial.author} className="bg-paper p-6">
             <Reveal delay={index * 0.05}>
               <figure className="flex h-full flex-col gap-3">
                 <blockquote className="font-serif text-lg leading-[1.45] text-pretty">
                   «{testimonial.quote}»
                 </blockquote>
-                <figcaption className="mt-auto text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-gold">
+                <figcaption className="mt-auto text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-plum">
                   {testimonial.author}
                 </figcaption>
               </figure>

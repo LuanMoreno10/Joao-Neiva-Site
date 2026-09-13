@@ -25,13 +25,13 @@ export function Header({ solid = false }: HeaderProps) {
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-40 transition-colors duration-500 ease-editorial',
-        filled ? 'border-b border-gold/20 bg-plum/95' : 'border-b border-transparent',
+        filled ? 'border-b border-plum/15 bg-paper/95' : 'border-b border-transparent',
       )}
     >
       <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-gutter lg:h-20">
         <a
           href="/"
-          className="font-serif text-lg font-semibold tracking-[0.16em] text-bone lg:text-xl"
+          className="font-serif text-lg font-semibold tracking-[0.16em] text-plum lg:text-xl"
         >
           {site.name.toUpperCase()}
         </a>
@@ -42,7 +42,7 @@ export function Header({ solid = false }: HeaderProps) {
               <li key={item.href}>
                 <a
                   href={item.href}
-                  className="text-xs uppercase tracking-[0.14em] text-bone/85 transition-colors duration-300 hover:text-gold"
+                  className="text-xs uppercase tracking-[0.14em] text-ink/80 transition-colors duration-300 hover:text-plum"
                 >
                   {item.label}
                 </a>
@@ -55,7 +55,7 @@ export function Header({ solid = false }: HeaderProps) {
           type="button"
           onClick={() => setMenuOpen(true)}
           aria-label="Abrir menu"
-          className="-mr-2 p-2 text-bone transition-colors hover:text-gold lg:hidden"
+          className="-mr-2 p-2 text-ink transition-colors hover:text-plum lg:hidden"
         >
           <Menu size={22} strokeWidth={1.25} />
         </button>

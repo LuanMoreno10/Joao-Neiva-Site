@@ -13,20 +13,20 @@ export function Services() {
         </h2>
       </Reveal>
 
-      <ul className="mt-8 border-b border-gold/30">
+      <ul className="mt-8 border-b border-plum/20">
         {services.items.map((item, index) => (
-          <li key={item.title} className="border-t border-gold/30">
+          <li key={item.title} className="border-t border-plum/20">
             <Reveal
               delay={index * 0.06}
               className="flex flex-col gap-1.5 py-5 lg:flex-row lg:items-center lg:justify-between lg:gap-10"
             >
               <div className="flex items-baseline gap-4 lg:gap-6">
-                <span className="w-5 shrink-0 text-[0.6875rem] font-semibold text-gold">
+                <span className="w-5 shrink-0 text-[0.6875rem] font-semibold text-plum">
                   {item.numeral}
                 </span>
                 <h3 className="font-serif text-xl">{item.title}</h3>
               </div>
-              <p className="pl-9 text-sm font-light leading-[1.55] text-linen lg:max-w-[520px] lg:flex-1 lg:pl-0">
+              <p className="pl-9 text-sm font-light leading-[1.55] text-ink-soft lg:max-w-[520px] lg:flex-1 lg:pl-0">
                 {item.body}
               </p>
             </Reveal>
@@ -35,7 +35,7 @@ export function Services() {
       </ul>
 
       <Reveal>
-        <p className="mt-8 text-eyebrow font-medium uppercase text-gold">{services.note}</p>
+        <p className="mt-8 text-eyebrow font-medium uppercase text-plum">{services.note}</p>
       </Reveal>
     </Section>
   )

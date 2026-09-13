@@ -9,50 +9,53 @@ export function Hero() {
       aria-labelledby="hero-title"
       className="relative flex min-h-[100svh] flex-col justify-end overflow-hidden px-gutter pb-10 pt-24 lg:pb-16"
     >
-      {/* Duotone: o multiply sobre o bordô funde o fundo branco de estúdio na cor da marca */}
-      <div aria-hidden className="absolute inset-0 -z-20 bg-plum">
-        <img
-          src={hero.image.src}
-          srcSet={hero.image.srcSet}
-          sizes="(max-aspect-ratio: 2/3) 66vh, 100vw"
-          alt=""
-          width={1365}
-          height={2048}
-          fetchPriority="high"
-          decoding="async"
-          className="size-full object-cover object-[center_32%] mix-blend-multiply"
-        />
-      </div>
+      <img
+        src={hero.image.src}
+        srcSet={hero.image.srcSet}
+        sizes="(max-aspect-ratio: 2/3) 66vh, 100vw"
+        alt=""
+        width={1365}
+        height={2048}
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 -z-20 size-full object-cover object-[center_32%]"
+      />
+      {/* Véu claro do lado do texto: a fotografia fica nas cores naturais e o texto escuro lê-se */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-r from-plum-deep/85 via-plum-deep/35 to-transparent"
+        className="absolute inset-0 -z-10 bg-linear-to-r from-paper/90 via-paper/40 to-transparent"
       />
       <div
         aria-hidden
-        className="absolute inset-x-0 bottom-0 -z-10 h-2/3 bg-linear-to-t from-plum-deep/90 to-transparent"
+        className="absolute inset-x-0 bottom-0 -z-10 h-3/5 bg-linear-to-t from-paper via-paper/80 to-transparent"
+      />
+      {/* Véu por baixo da barra de navegação, para os links não se perderem sobre o cabelo */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 -z-10 h-32 bg-linear-to-b from-paper/85 to-transparent"
       />
 
       <div className="mx-auto w-full max-w-[1280px]">
         <div className="max-w-[720px]">
-          <p className="mb-5 text-eyebrow font-medium uppercase text-gold">{site.motto}</p>
+          <p className="mb-5 text-eyebrow font-medium uppercase text-plum">{site.motto}</p>
 
           <h1 id="hero-title" className="font-serif text-display text-balance">
             {hero.headline}
           </h1>
 
-          <p className="mt-4 font-serif text-lead font-light text-linen text-pretty">
+          <p className="mt-4 font-serif text-lead font-light text-ink-soft text-pretty">
             {hero.lead}
           </p>
 
-          <p className="mt-4 max-w-[620px] text-sm font-light leading-relaxed text-bone/85 sm:text-base">
+          <p className="mt-4 max-w-[620px] text-sm font-light leading-relaxed text-ink-soft sm:text-base">
             {hero.body}
           </p>
         </div>
 
-        <div aria-hidden className="mt-8 h-px w-full max-w-[360px] bg-gold" />
+        <div aria-hidden className="mt-8 h-px w-full max-w-[360px] bg-plum" />
 
         <div className="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
-          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-gold sm:text-[0.8125rem]">
+          <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-plum sm:text-[0.8125rem]">
             {site.tagline}
           </p>
           <CtaLink href={contactUrl} external className="w-full sm:w-auto">

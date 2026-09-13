@@ -24,7 +24,7 @@ export function EmailCopy({ className }: EmailCopyProps) {
     <span className={cn('inline-flex items-center gap-2 text-sm', className)}>
       <a
         href={`mailto:${site.email}`}
-        className="underline-offset-4 transition-colors duration-300 hover:text-gold hover:underline"
+        className="underline-offset-4 transition-colors duration-300 hover:text-plum hover:underline"
       >
         {site.email}
       </a>
@@ -32,7 +32,7 @@ export function EmailCopy({ className }: EmailCopyProps) {
         type="button"
         onClick={handleCopy}
         aria-label={copied ? 'Endereço copiado' : 'Copiar endereço de email'}
-        className="p-1 opacity-70 transition-colors duration-300 hover:text-gold hover:opacity-100"
+        className="p-1 opacity-60 transition-colors duration-300 hover:text-plum hover:opacity-100"
       >
         {copied ? <Check size={14} strokeWidth={1.5} /> : <Copy size={14} strokeWidth={1.5} />}
       </button>

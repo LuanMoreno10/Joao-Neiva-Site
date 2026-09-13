@@ -31,7 +31,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
     <AnimatePresence>
       {open && (
         <motion.div
-          className="fixed inset-0 z-50 flex flex-col bg-plum lg:hidden"
+          className="fixed inset-0 z-50 flex flex-col bg-paper lg:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -40,13 +40,15 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           aria-modal="true"
           aria-label="Menu de navegação"
         >
-          <div className="flex h-20 shrink-0 items-center justify-between px-gutter">
-            <span className="font-serif text-xl font-semibold tracking-[0.14em]">{site.name}</span>
+          <div className="flex h-16 shrink-0 items-center justify-between px-gutter">
+            <span className="font-serif text-lg font-semibold tracking-[0.16em] text-plum">
+              {site.name.toUpperCase()}
+            </span>
             <button
               type="button"
               onClick={onClose}
               aria-label="Fechar menu"
-              className="-mr-2 p-2 text-bone/80 transition-colors hover:text-gold"
+              className="-mr-2 p-2 text-ink/70 transition-colors hover:text-plum"
             >
               <X size={22} strokeWidth={1.25} />
             </button>
@@ -59,7 +61,7 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
                   <a
                     href={item.href}
                     onClick={onClose}
-                    className="font-serif text-[2rem] leading-none text-bone transition-colors hover:text-gold"
+                    className="font-serif text-[2rem] leading-none text-ink transition-colors hover:text-plum"
                   >
                     {item.label}
                   </a>

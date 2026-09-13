@@ -19,14 +19,14 @@
 }
 
 @theme {
+  /* Base clara e sóbria; o bordô fica reservado aos pormenores */
+  --color-paper: #faf8f5;
+  --color-mist: #f1ece6;
+  --color-ink: #1f1b1c;
+  --color-ink-soft: #5b5456;
   --color-plum: #501c2d;
-  --color-plum-deep: #38111e;
-  --color-plum-soft: #69233a;
-  --color-bone: #f4f4f4;
-  --color-linen: #e8e1db;
+  /* Dourado só para os pormenores da secção Sobre, a única em fundo bordô */
   --color-gold: #b49a72;
-  /* Dourado escurecido para texto pequeno sobre fundos claros (contraste AA) */
-  --color-gold-deep: #7a6238;
 
   --font-serif: 'Cormorant Garamond', 'Iowan Old Style', 'Times New Roman', serif;
   --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, sans-serif;
@@ -60,8 +60,8 @@
   }
 
   body {
-    background-color: var(--color-plum);
-    color: var(--color-bone);
+    background-color: var(--color-paper);
+    color: var(--color-ink);
     font-family: var(--font-sans);
     font-synthesis-weight: none;
     -webkit-font-smoothing: antialiased;
@@ -69,12 +69,12 @@
   }
 
   ::selection {
-    background-color: var(--color-gold);
-    color: var(--color-plum-deep);
+    background-color: var(--color-plum);
+    color: var(--color-paper);
   }
 
   :focus-visible {
-    outline: 1px solid var(--color-gold);
+    outline: 1px solid var(--color-plum);
     outline-offset: 4px;
   }
 

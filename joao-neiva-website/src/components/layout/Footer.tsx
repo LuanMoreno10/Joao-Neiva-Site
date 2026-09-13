@@ -1,13 +1,13 @@
 import { contactUrl, footer, site } from '../../data/site'
 import { EmailCopy } from '../ui/EmailCopy'
 
-const labelClasses = 'text-eyebrow font-medium uppercase text-gold'
+const labelClasses = 'text-eyebrow font-medium uppercase text-plum'
 
 export function Footer() {
   return (
-    <footer className="border-t border-gold/20 bg-plum-deep px-gutter py-8">
+    <footer className="border-t border-plum/15 bg-mist px-gutter py-8">
       <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
-        <a href="/" className="font-serif text-base font-semibold tracking-[0.16em] text-bone">
+        <a href="/" className="font-serif text-base font-semibold tracking-[0.16em] text-plum">
           {site.name.toUpperCase()}
         </a>
 
@@ -18,7 +18,7 @@ export function Footer() {
               href={contactUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="transition-colors duration-300 hover:text-gold"
+              className="transition-colors duration-300 hover:text-plum"
             >
               {site.phone}
             </a>
@@ -30,7 +30,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto mt-6 flex w-full max-w-[1280px] flex-col gap-1 border-t border-gold/15 pt-5 text-[0.6875rem] text-bone/60 sm:flex-row sm:justify-between">
+      <div className="mx-auto mt-6 flex w-full max-w-[1280px] flex-col gap-1 border-t border-plum/10 pt-5 text-[0.6875rem] text-ink-soft sm:flex-row sm:justify-between">
         <p>{footer.legal}</p>
         <p>{footer.descriptor}</p>
       </div>

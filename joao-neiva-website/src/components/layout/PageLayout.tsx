@@ -15,7 +15,7 @@ export function PageLayout({ children, subpage = false }: PageLayoutProps) {
     <div className={cn(subpage && 'flex min-h-svh flex-col')}>
       <a
         href="#conteudo"
-        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-plum focus:px-4 focus:py-2"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:bg-plum focus:px-4 focus:py-2 focus:text-paper"
       >
         Saltar para o conteúdo
       </a>
