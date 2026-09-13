@@ -4,7 +4,11 @@ import { nav, site } from '../../data/site'
 import { cn } from '../../lib/cn'
 import { MobileMenu } from './MobileMenu'
 
-export function Header() {
+type HeaderProps = {
+  solid?: boolean
+}
+
+export function Header({ solid = false }: HeaderProps) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -15,11 +19,13 @@ export function Header() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  const filled = solid || scrolled
+
   return (
     <header
       className={cn(
         'fixed inset-x-0 top-0 z-40 transition-colors duration-500 ease-editorial',
-        scrolled ? 'border-b border-gold/20 bg-plum/95' : 'border-b border-transparent',
+        filled ? 'border-b border-gold/20 bg-plum/95' : 'border-b border-transparent',
       )}
     >
       <div className="mx-auto flex h-16 w-full max-w-[1280px] items-center justify-between px-gutter lg:h-20">
@@ -33,9 +39,9 @@ export function Header() {
         <nav aria-label="Navegação principal" className="hidden lg:block">
           <ul className="flex items-center gap-8">
             {nav.map((item) => (
-              <li key={item.id}>
+              <li key={item.href}>
                 <a
-                  href={`/#${item.id}`}
+                  href={item.href}
                   className="text-xs uppercase tracking-[0.14em] text-bone/85 transition-colors duration-300 hover:text-gold"
                 >
                   {item.label}

@@ -18,12 +18,19 @@ export const waLink = (message: string = site.whatsappMessage) =>
 
 export const contactUrl = waLink()
 
+// Cada fotografia existe em várias larguras (public/images/<nome>-<largura>.webp);
+// o browser escolhe a mais pequena que chega para o ecrã.
+const photo = (name: string, widths: number[]) => ({
+  src: `/images/${name}-${widths[widths.length - 1]}.webp`,
+  srcSet: widths.map((w) => `/images/${name}-${w}.webp ${w}w`).join(', '),
+})
+
 export const nav = [
-  { id: 'sobre', label: 'Sobre' },
-  { id: 'servicos', label: 'Serviços' },
-  { id: 'sessoes-online', label: 'Sessões Online' },
-  { id: 'testemunhos', label: 'Testemunhos' },
-  { id: 'contacto', label: 'Contacto' },
+  { href: '/#sobre', label: 'Sobre' },
+  { href: '/#servicos', label: 'Serviços' },
+  { href: '/sessoes-online/', label: 'Sessões Online' },
+  { href: '/testemunhos/', label: 'Testemunhos' },
+  { href: '/#contacto', label: 'Contacto' },
 ] as const
 
 export const hero = {
@@ -31,7 +38,7 @@ export const hero = {
   lead: 'Uma relação. Uma decisão. Uma mudança. Um conflito. Um bloqueio. Uma escolha profissional.',
   body: 'Talvez não precise de mais uma opinião. Talvez precise de uma perspetiva diferente.',
   image: {
-    src: '/images/JoaoPedro-06.webp',
+    ...photo('JoaoPedro-11', [640, 960, 1365]),
     alt: 'Retrato de João Neiva',
   },
 } as const
@@ -41,13 +48,13 @@ export const about = {
   title: 'Quem é o João Neiva?',
   facts: [
     '18+ anos ligados ao desporto, liderança e desenvolvimento de pessoas.',
-    '7+ anos ligados ao Sport Lisboa e Benfica — scouting, formação e alto rendimento.',
-    'Desde 2017 dedicado ao coaching e motivação pessoal e estratégica.',
+    '7+ anos ligados ao Sport Lisboa e Benfica — scouting e formação.',
+    'Desde 2017 dedicado ao aconselhamento pessoal e estratégico.',
   ],
   closing:
     'Uma carreira construída a ouvir, a compreender e a ajudar pessoas a tomar decisões com mais clareza.',
   portrait: {
-    src: '/images/JoaoPedro-11.webp',
+    ...photo('JoaoPedro-06', [480, 720, 960]),
     alt: 'João Neiva, conselheiro pessoal e estratégico',
   },
 } as const
@@ -87,7 +94,7 @@ export const approach = {
 export const services = {
   eyebrow: 'Aconselhamento Estratégico',
   title: 'O que posso fazer por si',
-  note: 'Formatos disponíveis: online ou presencial',
+  note: 'Formatos disponíveis: presencial e online',
   items: [
     {
       numeral: 'I',
@@ -145,6 +152,8 @@ export const online = {
 export const testimonials = {
   eyebrow: 'Perspetivas Reais',
   title: 'O que dizem sobre mim',
+  invite: 'Quer dar o primeiro passo?',
+  cta: 'Agendar uma conversa',
   items: [
     {
       quote: 'Pela primeira vez senti que alguém me ouvia sem me julgar. E isso mudou tudo.',
@@ -169,13 +178,16 @@ export const testimonials = {
 export const locations = {
   eyebrow: 'Presença & Atendimento',
   title: 'Onde estou',
-  places: ['Famalicão', 'Porto', 'Lisboa', 'Online'],
+  places: ['Presencial', 'Online'],
   note: 'Sessões presenciais em espaços que garantem privacidade, conforto e discrição.',
 } as const
 
-export const footer = {
+export const closing = {
   title: 'Nem todas as decisões precisam de mais tempo. Algumas precisam de mais clareza.',
   cta: 'Agendar uma conversa',
+} as const
+
+export const footer = {
   legal: `© ${new Date().getFullYear()} João Neiva. Todos os direitos reservados.`,
   descriptor: 'Consultoria Estratégica e Desenvolvimento Pessoal',
 } as const

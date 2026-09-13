@@ -1,20 +1,26 @@
-import { testimonials } from '../../data/site'
+import { contactUrl, testimonials } from '../../data/site'
+import { CtaLink } from '../ui/CtaLink'
+import { Eyebrow } from '../ui/Eyebrow'
 import { Reveal } from '../ui/Reveal'
 import { Section } from '../ui/Section'
 
 export function Testimonials() {
   return (
-    <Section id="testemunhos" labelledBy="testemunhos-title" className="bg-linen text-plum">
+    <Section
+      id="testemunhos"
+      labelledBy="testemunhos-title"
+      className="flex flex-1 flex-col justify-center bg-plum-soft"
+    >
       <Reveal className="flex flex-col gap-2">
-        <p className="text-eyebrow font-medium uppercase text-gold">{testimonials.eyebrow}</p>
-        <h2 id="testemunhos-title" className="font-serif text-title">
+        <Eyebrow>{testimonials.eyebrow}</Eyebrow>
+        <h1 id="testemunhos-title" className="font-serif text-title">
           {testimonials.title}
-        </h2>
+        </h1>
       </Reveal>
 
-      <ul className="mt-8 grid gap-px bg-plum/15 sm:grid-cols-2">
+      <ul className="mt-8 grid gap-px bg-gold/20 sm:grid-cols-2">
         {testimonials.items.map((testimonial, index) => (
-          <li key={testimonial.author} className="bg-linen p-6">
+          <li key={testimonial.author} className="bg-plum-soft p-6">
             <Reveal delay={index * 0.05}>
               <figure className="flex h-full flex-col gap-3">
                 <blockquote className="font-serif text-lg leading-[1.45] text-pretty">
@@ -28,6 +34,13 @@ export function Testimonials() {
           </li>
         ))}
       </ul>
+
+      <Reveal className="mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <p className="font-serif text-xl">{testimonials.invite}</p>
+        <CtaLink href={contactUrl} external className="w-full sm:w-auto">
+          {testimonials.cta}
+        </CtaLink>
+      </Reveal>
     </Section>
   )
 }

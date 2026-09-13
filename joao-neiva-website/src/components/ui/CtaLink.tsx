@@ -7,18 +7,29 @@ type CtaLinkProps = {
   className?: string
   onClick?: () => void
   external?: boolean
+  onLight?: boolean
 }
 
-export function CtaLink({ href, children, className, onClick, external = false }: CtaLinkProps) {
+export function CtaLink({
+  href,
+  children,
+  className,
+  onClick,
+  external = false,
+  onLight = false,
+}: CtaLinkProps) {
   return (
     <a
       href={href}
       onClick={onClick}
       {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       className={cn(
-        'inline-flex items-center justify-center border border-gold px-7 py-3',
-        'text-[0.75rem] font-medium uppercase tracking-[0.12em] text-bone',
-        'transition-colors duration-300 ease-editorial hover:bg-gold hover:text-plum-deep',
+        'inline-flex items-center justify-center border px-7 py-3',
+        'text-[0.75rem] font-medium uppercase tracking-[0.12em]',
+        'transition-colors duration-300 ease-editorial',
+        onLight
+          ? 'border-plum text-plum hover:bg-plum hover:text-bone'
+          : 'border-gold text-bone hover:bg-gold hover:text-plum-deep',
         className,
       )}
     >

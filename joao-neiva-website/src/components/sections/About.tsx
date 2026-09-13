@@ -10,12 +10,14 @@ export function About() {
         <Reveal>
           <img
             src={about.portrait.src}
+            srcSet={about.portrait.srcSet}
+            sizes="(min-width: 1024px) 460px, calc(100vw - 2.5rem)"
             alt={about.portrait.alt}
             width={560}
             height={680}
             loading="lazy"
             decoding="async"
-            className="aspect-[14/17] w-full object-cover"
+            className="aspect-[14/17] w-full object-cover object-[center_15%]"
           />
         </Reveal>
 

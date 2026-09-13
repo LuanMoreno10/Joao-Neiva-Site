@@ -1,30 +1,38 @@
 import { contactUrl, footer, site } from '../../data/site'
-import { CtaLink } from '../ui/CtaLink'
 import { EmailCopy } from '../ui/EmailCopy'
-import { Reveal } from '../ui/Reveal'
+
+const labelClasses = 'text-eyebrow font-medium uppercase text-gold'
 
 export function Footer() {
   return (
-    <footer id="contacto" className="bg-plum-deep px-gutter py-section">
-      <div className="mx-auto w-full max-w-[1280px]">
-        <Reveal className="flex flex-col items-center gap-6 text-center">
-          <h2 className="max-w-[720px] font-serif text-title text-balance">{footer.title}</h2>
-          <CtaLink href={contactUrl} external>
-            {footer.cta}
-          </CtaLink>
-        </Reveal>
+    <footer className="border-t border-gold/20 bg-plum-deep px-gutter py-8">
+      <div className="mx-auto flex w-full max-w-[1280px] flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+        <a href="/" className="font-serif text-base font-semibold tracking-[0.16em] text-bone">
+          {site.name.toUpperCase()}
+        </a>
 
-        <div className="mt-12 flex flex-col items-center gap-3 text-center">
-          <EmailCopy />
-          <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.14em] text-gold">
-            {site.tagline}
+        <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:gap-8">
+          <p className="flex items-center gap-3">
+            <span className={labelClasses}>WhatsApp</span>
+            <a
+              href={contactUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="transition-colors duration-300 hover:text-gold"
+            >
+              {site.phone}
+            </a>
+          </p>
+          <p className="flex items-center gap-3">
+            <span className={labelClasses}>Email</span>
+            <EmailCopy />
           </p>
         </div>
+      </div>
 
-        <div className="mt-10 flex flex-col gap-2 border-t border-gold/30 pt-6 text-[0.6875rem] text-bone/70 sm:flex-row sm:items-center sm:justify-between">
-          <p>{footer.legal}</p>
-          <p>{footer.descriptor}</p>
-        </div>
+      <div className="mx-auto mt-6 flex w-full max-w-[1280px] flex-col gap-1 border-t border-gold/15 pt-5 text-[0.6875rem] text-bone/60 sm:flex-row sm:justify-between">
+        <p>{footer.legal}</p>
+        <p>{footer.descriptor}</p>
       </div>
     </footer>
   )

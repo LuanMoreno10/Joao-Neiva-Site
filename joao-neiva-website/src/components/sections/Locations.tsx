@@ -5,9 +5,9 @@ import { Section } from '../ui/Section'
 
 export function Locations() {
   return (
-    <Section id="localizacao" labelledBy="localizacao-title">
+    <Section id="localizacao" labelledBy="localizacao-title" className="bg-linen text-plum">
       <Reveal>
-        <Eyebrow>{locations.eyebrow}</Eyebrow>
+        <Eyebrow onLight>{locations.eyebrow}</Eyebrow>
       </Reveal>
 
       <Reveal delay={0.08} className="mt-6 flex flex-col items-center gap-4 text-center">
@@ -20,7 +20,7 @@ export function Locations() {
             <li key={place} className="flex items-center gap-4">
               {place}
               {index < locations.places.length - 1 && (
-                <span aria-hidden className="text-gold">
+                <span aria-hidden className="text-gold-deep">
                   ·
                 </span>
               )}
@@ -28,7 +28,7 @@ export function Locations() {
           ))}
         </ul>
 
-        <p className="max-w-[560px] text-sm font-light leading-relaxed text-linen">
+        <p className="max-w-[560px] text-sm font-light leading-relaxed text-plum/75">
           {locations.note}
         </p>
       </Reveal>

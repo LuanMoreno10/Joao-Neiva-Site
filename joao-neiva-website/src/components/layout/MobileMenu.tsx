@@ -55,9 +55,9 @@ export function MobileMenu({ open, onClose }: MobileMenuProps) {
           <nav aria-label="Navegação principal" className="flex flex-1 flex-col justify-center px-gutter">
             <ul className="flex flex-col gap-7">
               {nav.map((item) => (
-                <li key={item.id}>
+                <li key={item.href}>
                   <a
-                    href={`/#${item.id}`}
+                    href={item.href}
                     onClick={onClose}
                     className="font-serif text-[2rem] leading-none text-bone transition-colors hover:text-gold"
                   >
