@@ -1,4 +1,4 @@
-import { contactUrl, footer, site } from '../../data/site'
+import { footer, site } from '../../data/site'
 import { EmailCopy } from '../ui/EmailCopy'
 
 const labelClasses = 'text-eyebrow font-medium uppercase text-plum'
@@ -12,17 +12,6 @@ export function Footer() {
         </a>
 
         <div className="flex flex-col gap-3 text-sm sm:flex-row sm:items-center sm:gap-8">
-          <p className="flex items-center gap-3">
-            <span className={labelClasses}>WhatsApp</span>
-            <a
-              href={contactUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition-colors duration-300 hover:text-plum"
-            >
-              {site.phone}
-            </a>
-          </p>
           <p className="flex items-center gap-3">
             <span className={labelClasses}>Email</span>
             <EmailCopy />

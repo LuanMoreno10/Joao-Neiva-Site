@@ -5,7 +5,9 @@ export const site = {
   // Assinatura do cartão de visita
   motto: 'Relações · Decisões · Recomeço',
   email: 'joaoneiva.advisor@gmail.com',
-  phone: '+351 912 720 820',
+  // Número anterior retirado a pedido do cliente — vai mudar de operadora/número.
+  // Enquanto ficar vazio, os botões "Agendar uma conversa" aparecem desativados (ver CtaLink).
+  phone: '' as string,
   whatsappMessage: 'Olá João, gostaria de agendar uma conversa.',
 } as const
 
@@ -13,8 +15,9 @@ export const mailLink = (subject: string) =>
   `mailto:${site.email}?subject=${encodeURIComponent(subject)}`
 
 // O wa.me só aceita dígitos: retira o "+" e os espaços do número.
-export const waLink = (message: string = site.whatsappMessage) =>
-  `https://wa.me/${site.phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`
+// Sem número configurado, devolve undefined — os botões passam a aparecer desativados.
+export const waLink = (message: string = site.whatsappMessage): string | undefined =>
+  site.phone ? `https://wa.me/${site.phone.replace(/\D/g, '')}?text=${encodeURIComponent(message)}` : undefined
 
 export const contactUrl = waLink()
 

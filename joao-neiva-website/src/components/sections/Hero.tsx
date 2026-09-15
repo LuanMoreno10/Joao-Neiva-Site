@@ -39,6 +39,12 @@ export function Hero() {
         <div className="max-w-[720px]">
           <p className="mb-5 text-eyebrow font-medium uppercase text-plum">{site.motto}</p>
 
+          <p className="mb-3 font-serif text-2xl">
+            <span className="font-medium">{site.name}</span>
+            <span className="mx-2 text-ink-soft">·</span>
+            <span className="font-light text-ink-soft">{site.role}</span>
+          </p>
+
           <h1 id="hero-title" className="font-serif text-display text-balance">
             {hero.headline}
           </h1>
