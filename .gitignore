@@ -1,0 +1,8 @@
+# Este repositório existe só para o site do João Neiva.
+# Tudo o resto na pasta ~/code (outros projetos) fica de fora por omissão.
+/*
+!/joao-neiva-website/
+!/.gitignore
+
+# Ficheiros do sistema, em qualquer subpasta
+.DS_Store
