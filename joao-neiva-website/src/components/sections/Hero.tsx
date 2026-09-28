@@ -1,8 +1,27 @@
+import { motion, useReducedMotion } from 'framer-motion'
 import { contactUrl, hero, site } from '../../data/site'
+import { editorialEase } from '../../lib/motion'
 import { CtaLink } from '../ui/CtaLink'
 
-// Sem animação de entrada: o título é o elemento LCP e o Google só o conta quando está visível.
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+}
+
+const item = {
+  hidden: { opacity: 0, y: 24 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.9, ease: editorialEase } },
+}
+
+// Pré-visualização COM animação de entrada. Versão sem animação (melhor LCP)
+// guardada no scratchpad: Hero.sem-animacao.tsx.
 export function Hero() {
+  const prefersReducedMotion = useReducedMotion()
+  const animation = prefersReducedMotion
+    ? {}
+    : { variants: container, initial: 'hidden' as const, animate: 'visible' as const }
+  const child = prefersReducedMotion ? {} : { variants: item }
+
   return (
     <section
       id="top"
@@ -35,40 +54,55 @@ export function Hero() {
         className="absolute inset-x-0 top-0 -z-10 h-32 bg-linear-to-b from-paper/85 to-transparent"
       />
 
-      <div className="mx-auto w-full max-w-[1280px]">
+      <motion.div {...animation} className="mx-auto w-full max-w-[1280px]">
         <div className="max-w-[720px]">
-          <p className="mb-5 text-eyebrow font-medium uppercase text-plum">{site.motto}</p>
+          <motion.p {...child} className="mb-5 text-eyebrow font-medium uppercase text-plum">
+            {site.motto}
+          </motion.p>
 
-          <p className="mb-3 font-serif text-2xl">
+          <motion.p {...child} className="mb-3 font-serif text-2xl">
             <span className="font-medium">{site.name}</span>
             <span className="mx-2 text-ink-soft">·</span>
             <span className="font-light text-ink-soft">{site.role}</span>
-          </p>
+          </motion.p>
 
-          <h1 id="hero-title" className="font-serif text-display text-balance">
+          <motion.h1
+            {...child}
+            id="hero-title"
+            className="font-serif text-display text-balance"
+          >
             {hero.headline}
-          </h1>
+          </motion.h1>
 
-          <p className="mt-4 font-serif text-lead font-light text-ink-soft text-pretty">
+          <motion.p
+            {...child}
+            className="mt-4 font-serif text-lead font-light text-ink-soft text-pretty"
+          >
             {hero.lead}
-          </p>
+          </motion.p>
 
-          <p className="mt-4 max-w-[620px] text-sm font-light leading-relaxed text-ink-soft sm:text-base">
+          <motion.p
+            {...child}
+            className="mt-4 max-w-[620px] text-sm font-light leading-relaxed text-ink-soft sm:text-base"
+          >
             {hero.body}
-          </p>
+          </motion.p>
         </div>
 
-        <div aria-hidden className="mt-8 h-px w-full max-w-[360px] bg-plum" />
+        <motion.div {...child} aria-hidden className="mt-8 h-px w-full max-w-[360px] bg-plum" />
 
-        <div className="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+        <motion.div
+          {...child}
+          className="mt-5 flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+        >
           <p className="text-[0.75rem] font-semibold uppercase tracking-[0.12em] text-plum sm:text-[0.8125rem]">
             {site.tagline}
           </p>
           <CtaLink href={contactUrl} external className="w-full sm:w-auto">
             Agendar uma conversa
           </CtaLink>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </section>
   )
 }

@@ -7,7 +7,7 @@ export const site = {
   email: 'joaoneiva.advisor@gmail.com',
   // Número anterior retirado a pedido do cliente — vai mudar de operadora/número.
   // Enquanto ficar vazio, os botões "Agendar uma conversa" aparecem desativados (ver CtaLink).
-  phone: '' as string,
+  phone: '+351 925 452 632' as string,
   whatsappMessage: 'Olá João, gostaria de agendar uma conversa.',
 } as const
 
